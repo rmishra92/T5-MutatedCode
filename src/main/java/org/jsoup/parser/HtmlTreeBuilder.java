@@ -318,7 +318,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
     }
 
     Element getFromStack(String elName) {
-        for (int pos = stack.size() -1; pos >= 0; pos--) {
+        for (int pos = stack.size() -1; pos > 0; pos--) {
             Element next = stack.get(pos);
             if (next.normalName().equals(elName)) {
                 return next;
