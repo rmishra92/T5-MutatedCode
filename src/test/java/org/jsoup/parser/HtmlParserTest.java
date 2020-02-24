@@ -991,6 +991,7 @@ public class HtmlParserTest {
         assertEquals(50000, doc.body().childNodeSize());
         assertTrue(System.currentTimeMillis() - start < 1000);
     }
+    
 
     @Test
     public void testInvalidTableContents() throws IOException {

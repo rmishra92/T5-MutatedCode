@@ -78,6 +78,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
         fosterInserts = false;
         fragmentParsing = false;
     }
+    
 
     List<Node> parseFragment(String inputFragment, Element context, String baseUri, Parser parser) {
         // context may be null
@@ -318,7 +319,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
     }
 
     Element getFromStack(String elName) {
-        for (int pos = stack.size() -1; pos >= 0; pos--) {
+        for (int pos = stack.size() -1; pos > 0; pos--) {
             Element next = stack.get(pos);
             if (next.normalName().equals(elName)) {
                 return next;
@@ -620,6 +621,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
         }
         formattingElements.add(in);
     }
+    
 
     private boolean isSameFormattingElement(Element a, Element b) {
         // same if: same namespace, tag, and attributes. Element.equals only checks tag, might in future check children
