@@ -167,6 +167,23 @@
           <threadCount>8</threadCount>
         </configuration>
       </plugin>
+      <plugin>
+      <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>1.4.11</version>
+    <configuration>
+        <targetClasses>
+            <param>org.jsoup.parser.HtmlTreeBuilder*</param>
+            <param>org.jsoup.parser.Parser*</param>
+        </targetClasses>
+        <targetTests>
+            <param>org.jsoup.parser.HtmlParserTest*</param>
+            <param>org.jsoup.parser.ParserTest*</param>
+            <param>org.jsoup.parser.HtmlTreeBuilderTest*</param>
+        </targetTests>
+    </configuration>
+    </plugin>
+      
     </plugins>
     <resources>
       <resource>
@@ -277,6 +294,13 @@
       <version>9.4.26.v20200117</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>1.4.11</version>
+    
+</dependency>
 
   </dependencies>
 

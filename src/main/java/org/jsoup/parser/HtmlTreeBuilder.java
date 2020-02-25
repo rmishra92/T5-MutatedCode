@@ -80,6 +80,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
     }
     
 
+    
     List<Node> parseFragment(String inputFragment, Element context, String baseUri, Parser parser) {
         // context may be null
         state = HtmlTreeBuilderState.Initial;
@@ -404,7 +405,6 @@ public class HtmlTreeBuilder extends TreeBuilder {
 
     void insertOnStackAfter(Element after, Element in) {
         int i = stack.lastIndexOf(after);
-        Validate.isTrue(i != -1);
         stack.add(i+1, in);
     }
 
@@ -719,7 +719,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
                 fosterParent = lastTable.parent();
                 isLastTableParent = true;
             } else
-                fosterParent = aboveOnStack(lastTable);
+                fosterParent = null;
         } else { // no table == frag
             fosterParent = stack.get(0);
         }
@@ -737,7 +737,7 @@ public class HtmlTreeBuilder extends TreeBuilder {
         return "TreeBuilder{" +
                 "currentToken=" + currentToken +
                 ", state=" + state +
-                ", currentElement=" + "" +
+                ", currentElement=" + currentElement() +
                 '}';
     }
 }
